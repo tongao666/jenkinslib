@@ -14,6 +14,7 @@ pipeline {
                     customWorkspace "${workspace}"   //指定运行工作目录（可选）
             }
     }
+    parameters { string(name: 'test', defaultValue: 'abcd', description: '') }
 
     options {
         timestamps()  //日志会有时间
