@@ -2,8 +2,12 @@
 @Library('jenkinslib') _
 
 def build = new org.devops.build()
+def deploy = now org.devops.deploy()
+
 String buildType = "${env.buildType}"
 String buildShell = "${env.buildShell}"
+String deployHosts = "${env.deployHosts}"
+
 
 //Pipeline
 pipeline {
@@ -13,10 +17,12 @@ pipeline {
 
     stages {
         //下载代码
-        stage("build"){ //阶段名称
-            steps{  //步骤
-                 script{ //填写运行代码
+        stage("build"){ 
+            steps{
+                 script{
                         build.Build(buildType,buildShell)
+                        deploy.SaltDeploy("${deployHosts}","test.ping")
+                        deploy.AnsibleDeploy("${deployHosts}","-m ping")
                   }
             }
         }
