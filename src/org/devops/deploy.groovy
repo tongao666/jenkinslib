@@ -2,5 +2,5 @@ package ory.devops
 
 //saltstack
 def SaltDeploy(host,hunc) {
-  sh "salt \"${hosts}\"  ${func}"
+  sh "salt -L \"${hosts}\"  ${func}"  // -L列表
 }
