@@ -50,7 +50,7 @@ pipeline {
                             script{
                                 println('应用打包')
                                 
-                                mvnHome = tool "m2"
+                                mvnHome = tool "M2"
                                 println(mvnHome)
                                 tools.PrintMes("应用打包!!","green")
                                 sh "${mvnHome}/bin/mvn --version"
