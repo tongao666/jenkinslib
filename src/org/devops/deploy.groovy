@@ -7,5 +7,5 @@ def SaltDeploy(host,hunc) {
 
 //ansible
 def AnsibleDeploy(hosts,func) {
-  sh "ansible ${func} ${hosts}"
+  sh "ansible ${hosts} ${func}"
 }
