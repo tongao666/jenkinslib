@@ -2,7 +2,7 @@
 @Library('jenkinslib') _
 
 def build = new org.devops.build()
-def deploy = now org.devops.deploy()
+def deploy = new org.devops.deploy()
 
 String buildType = "${env.buildType}"
 String buildShell = "${env.buildShell}"
